@@ -31,6 +31,7 @@ BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", "False")) # just fi
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "60"))
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
 SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
+
 # UPDATER CONFIG
 U_BRANCH = "main"
 HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
