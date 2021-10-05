@@ -32,7 +32,7 @@ async def _(bot: Client, cmd: Message):
 
 # Back Button
 BACK_BUTTON = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("🏡 Go Back", callback_data="cbback")]]
+    [[InlineKeyboardButton("🚪 Go Back", callback_data="cbback")]]
 )
 
 # @Client.on_message(filters.text & ~filters.private)
@@ -74,9 +74,9 @@ async def controlset(_, message: Message):
                     InlineKeyboardButton("⏩ skip", callback_data="cbskip"),
                     InlineKeyboardButton("⏹ end", callback_data="cbend"),
                 ],
-                [InlineKeyboardButton("⛔ anti cmd", callback_data="cbdelcmds")],
-                [InlineKeyboardButton("🛄 group tools", callback_data="cbgtools")],
-                [InlineKeyboardButton("🗑 Close", callback_data="close")],
+                [InlineKeyboardButton("🧾 anti cmd", callback_data="cbdelcmds")],
+                [InlineKeyboardButton("🛠️ group tools", callback_data="cbgtools")],
+                [InlineKeyboardButton("🚧 Close", callback_data="close")],
             ]
         ),
     )
@@ -94,7 +94,7 @@ async def pause(_, message: Message):
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
         await message.reply_text(
-            "⏸ **Track paused.**\n\n• **To resume the playback, use the** » `/resume` command."
+            "⏸ __Track paused.__\n\n**To resume the playback, use the** > `/resume` command."
         )
 
 
@@ -110,7 +110,7 @@ async def resume(_, message: Message):
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
         await message.reply_text(
-            "▶️ **Track resumed.**\n\n• **To pause the playback, use the** » `/pause` command."
+            "__Track resumed.__\n\n~ **To pause the playback, use the** » `/pause` command."
         )
 
 
@@ -152,7 +152,7 @@ async def skip(_, message: Message):
         qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text("⏭ **You've skipped to the next song.**")
+    await message.reply_text(">> **You've skipped to the next song.**")
 
 
 @Client.on_message(command(["auth", f"auth@{BOT_USERNAME}"]) & other_filters)
@@ -166,7 +166,7 @@ async def authenticate(client, message):
         new_admins.append(message.reply_to_message.from_user.id)
         admins[message.chat.id] = new_admins
         await message.reply(
-            "🟢 user authorized.\n\nfrom now on, that's user can use the admin commands."
+            "💌 user authorized.\n\nfrom now on, that's user can use the admin commands."
         )
     else:
         await message.reply("✅ user already authorized!")
@@ -183,7 +183,7 @@ async def deautenticate(client, message):
         new_admins.remove(message.reply_to_message.from_user.id)
         admins[message.chat.id] = new_admins
         await message.reply(
-            "🔴 user deauthorized.\n\nfrom now that's user can't use the admin commands."
+            "🚧 user deauthorized.\n\nfrom now that's user can't use the admin commands."
         )
     else:
         await message.reply("✅ user already deauthorized!")
@@ -289,7 +289,7 @@ async def cbskip(_, query: CallbackQuery):
     if not qeue:
         return
     await query.edit_message_text(
-        "⏭ **you've skipped to the next song**", reply_markup=BACK_BUTTON
+        ">> **you've skipped to the next song**", reply_markup=BACK_BUTTON
     )
 
 
