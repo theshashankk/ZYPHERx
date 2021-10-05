@@ -18,21 +18,21 @@ BG_IMAGE = getenv("BG_IMAGE", "https://telegra.ph/file/7195e6a732d5c157e64ef.jpg
 THUMB_IMG = getenv("THUMB_IMG", "https://telegra.ph/file/976bb4ee2f66857cfa317.jpg")
 AUD_IMG = getenv("AUD_IMG", "https://telegra.ph/file/5dd2446cfe99c08a7490a.jpg")
 QUE_IMG = getenv("QUE_IMG", "https://telegra.ph/file/e3c0c7e817f95448473a1.jpg")
-API_ID = int(getenv("API_ID", "2615662"))
-API_HASH = getenv("API_HASH", "f4ab3405e1518e49c3c6f19163981c60")
+API_ID = int(getenv("API_ID"))
+API_HASH = getenv("API_HASH")
 BOT_USERNAME = getenv("BOT_USERNAME", "ZYPHERx_bot")
-ASSISTANT_NAME = getenv("ASSISTANT_NAME", "ZYPHER x ASSISTANT")
-GROUP_SUPPORT = getenv("GROUP_SUPPORT", "ZYPHERxSUPPORT")
-UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "Zypherxbotz")
+ASSISTANT_NAME = getenv("ASSISTANT_NAME", "zypher_assist")
+GROUP_SUPPORT = getenv("GROUP_SUPPORT", "ZYPHERXSUPPORT")
+UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "ZYPHERxSUPPORT")
 # isi dengan username kamu tanpa simbol @
-OWNER_NAME = getenv("OWNER_NAME", "Andreobee_xD")
+OWNER_NAME = getenv("OWNER_NAME", "andreobee_xD")
 # fill with DISABLE if you want to disable pm-permit
 PMPERMIT = getenv("PMPERMIT", "ENABLE")
 # fill with your id as the owner of the bot
-OWNER_ID = int(os.environ.get("OWNER_ID", "1958076591"))
-DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://xdshashank:xdshashank@cluster0.f8iym.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")  # fill with your mongodb url
+OWNER_ID = int(os.environ.get("OWNER_ID"))
+DATABASE_URL = os.environ.get("DATABASE_URL")  # fill with your mongodb url
 # make a private channel and get the channel id
-LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001518820308"))
+LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL"))
 # just fill with True or False (optional)
 BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", "False"))
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "60"))
