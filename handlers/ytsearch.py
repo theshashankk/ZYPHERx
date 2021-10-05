@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
-@app.on_message(command(["info", f"info@{BOT_USERNAME}"]))
+@app.on_message(command(["info_", f"info_@{BOT_USERNAME}"]))
 async def ytsearch(_, message: Message):
     try:
         if len(message.command) < 2:
