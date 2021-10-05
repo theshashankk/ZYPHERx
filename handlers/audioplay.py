@@ -33,14 +33,12 @@ async def stream(_, message: Message):
         [
             [
                 InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
-                ),
-                InlineKeyboardButton(
-                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text='🚧 Close', callback_data='vlose'
                 ),
             ]
         ]
     )
+                
 
     audio = message.reply_to_message.audio if message.reply_to_message else None
 
