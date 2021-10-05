@@ -167,9 +167,6 @@ def r_ply(type_):
                 InlineKeyboardButton("▶️", "resume"),
                 InlineKeyboardButton("⏭", "skip"),
             ],
-            [
-                InlineKeyboardButton("📖 PLAY-LIST", "playlist"),
-            ],
             [InlineKeyboardButton("🗑 Close", "cls")],
         ]
     )
@@ -194,7 +191,7 @@ async def settings(client, message):
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
         await message.reply(
-            "😕 **voice chat not found**\n\n» please turn on the voice chat first"
+            "🚧 **voice chat not found**\n\n» please turn on the voice chat first"
         )
 
 
@@ -385,9 +382,6 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("▶️", "resume"),
                     InlineKeyboardButton("⏭", "skip"),
                 ],
-                [
-                    InlineKeyboardButton("📖 PLAY-LIST", "playlist"),
-                ],
                 [InlineKeyboardButton("🗑 Close", "cls")],
             ]
         )
@@ -414,7 +408,7 @@ async def m_cb(b, cb):
                 await cb.answer("skipped")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
                 await cb.message.reply_text(
-                    f"⫸ skipped track\n⫸ now playing : **{qeue[0][0]}**"
+                    f">> skipped track\n>> now playing : **{qeue[0][0]}**"
                 )
 
     elif type_ == "leave":
@@ -523,16 +517,11 @@ async def play(_, message: Message):
                     InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],
-                [
-                    InlineKeyboardButton(
-                        "📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    )
-                ],
             ]
         )
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://telegra.ph/file/fa2cdb8a14a26950da711.png"
+        thumb_name = "https://telegra.ph/file/7195e6a732d5c157e64ef.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         message.from_user.first_name
@@ -577,11 +566,6 @@ async def play(_, message: Message):
                     InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],
-                [
-                    InlineKeyboardButton(
-                        "📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    )
-                ],
             ]
         )
         message.from_user.first_name
@@ -609,7 +593,7 @@ async def play(_, message: Message):
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}...](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ __Powered by {BOT_NAME} AI__\n\n"
+                toxxt += f" └ ⚡ __Powered by {BOT_NAME}__\n\n"
                 j += 1
             keyboard = InlineKeyboardMarkup(
                 [
@@ -670,11 +654,6 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
                         InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                        )
                     ],
                 ]
             )
@@ -773,14 +752,13 @@ async def lol_cb(b, cb):
     dlurl = url
     dlurl = dlurl.replace("youtube", "youtubepp")
     keyboard = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-            ],
-            [InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")],
-        ]
-    )
+                [
+                    [
+                        InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
+                        InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    ],
+                ]
+            )
     await generate_cover(title, thumbnail)
     file_path = await converter.convert(youtube.download(url))
     if chat_id in callsmusic.pytgcalls.active_calls:
@@ -927,19 +905,13 @@ async def ytplay(_, message: Message):
     dlurl = url
     dlurl = dlurl.replace("youtube", "youtubepp")
     keyboard = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-            ],
-            [
-                InlineKeyboardButton(
-                    "📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                ),
-                InlineKeyboardButton("✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"),
-            ],
-        ]
-    )
+                [
+                    [
+                        InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
+                        InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    ],
+                ]
+            )
     message.from_user.first_name
     await generate_cover(title, thumbnail)
     file_path = await converter.convert(youtube.download(url))
