@@ -732,7 +732,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("💡 sorry, this is not for you !", show_alert=True)
         return
-    # await cb.message.edit("🔁 **processing...**")
+    await cb.message.edit(f"**Downloading...\n\nTitle - {title[:25]}\n\nPowered By Zypher**")
     x = int(x)
     try:
         cb.message.reply_to_message.from_user.first_name
