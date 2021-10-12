@@ -485,7 +485,6 @@ async def play(_, message: Message):
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
-                    # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \n\nassistant can't join this group due to many join requests for userbot."
                         f"\n\nor add @{ASSISTANT_NAME} to this group manually then try again.</b>",
@@ -529,9 +528,12 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("⏹", "leave"),
+                    InlineKeyboardButton("⏸", "puse"),
+                    InlineKeyboardButton("▶️", "resume"),
+                    InlineKeyboardButton("⏭", "skip"),
                 ],
+                [InlineKeyboardButton("🗑 Close", "cls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -578,9 +580,12 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("⏹", "leave"),
+                    InlineKeyboardButton("⏸", "puse"),
+                    InlineKeyboardButton("▶️", "resume"),
+                    InlineKeyboardButton("⏭", "skip"),
                 ],
+                [InlineKeyboardButton("🗑 Close", "cls")],
             ]
         )
         message.from_user.first_name
