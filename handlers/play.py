@@ -44,12 +44,12 @@ DISABLED_GROUPS = []
 ppl_b = InlineKeyboardMarkup(
     [
         [
-            InlineKeyBoardButton("⏹️", callback_data="leave"),
-            InlineKeyBoardButton("⏸", callback_data="puse"),
-            InlineKeyBoardButton("▶️", callback_data="resume"),
-            InlineKeyBoardButton("⏩", callback_data="skip")
+            InlineKeyboardButton("⏹️", callback_data="leave"),
+            InlineKeyboardButton("⏸", callback_data="puse"),
+            InlineKeyboardButton("▶️", callback_data="resume"),
+            InlineKeyboardButton("⏩", callback_data="skip")
         ],
-        [InlineKeyBoardButton("🚧 Close", callback_data="cls")],
+        [InlineKeyboardButton("🚧 Close", callback_data="cls")],
     ]
 )
 
@@ -687,7 +687,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:35]}...]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}\n\n[More information](t.me/Zypherx_bot?start=info_{url})",
-            reply_markup=keyboard,
+            reply_markup=ppl_b,
         )
     else:
         chat_id = get_chat_id(message.chat)
@@ -709,7 +709,7 @@ async def play(_, message: Message):
             photo="final.png",
             caption=f"🏷 **Name:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n"
             + f"🎧 **Request by:** {message.from_user.mention}",
-            reply_markup=keyboard,
+            reply_markup=ppl_b,
         )
         os.remove("final.png")
         return await lel.delete()
@@ -792,7 +792,7 @@ async def lol_cb(b, cb):
             chat_id,
             photo="final.png",
             caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:35]}...]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
-            reply_markup=keyboard,
+            reply_markup=ppl_b,
         )
     else:
         que[chat_id] = []
@@ -812,7 +812,7 @@ async def lol_cb(b, cb):
             photo="final.png",
             caption=f"🏷 **Name:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n"
             + f"🎧 **Request by:** {r_by.mention}",
-            reply_markup=keyboard,
+            reply_markup=ppl_b,
         )
     if path.exists("final.png"):
         os.remove("final.png")
@@ -942,7 +942,7 @@ async def ytplay(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:35]}...]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}",
-            reply_markup=keyboard,
+            reply_markup=ppl_b,
         )
     else:
         chat_id = get_chat_id(message.chat)
@@ -964,7 +964,7 @@ async def ytplay(_, message: Message):
             photo="final.png",
             caption=f"🏷 **Name:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n"
             + f"🎧 **Request by:** {message.from_user.mention}",
-            reply_markup=keyboard,
+            reply_markup=ppl_b,
         )
         os.remove("final.png")
         return await lel.delete()
