@@ -12,6 +12,7 @@ from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtube_search import YoutubeSearch
+from pyrogram.types import CallbackQuery
 
 import converter
 from cache.admins import admins as a
@@ -194,7 +195,21 @@ async def settings(client, message):
             "🚧 **voice chat not found**\n\n» please turn on the voice chat first"
         )
 
+@Client.on_callback_query(filters.regex("okmenu"))
+async def playermenu(message, query: CallbackQuery):
+    playing = None
+    if message.chat.id in callsmusic.pytgcalls.active_calls:
+        playing = True
+    queue = que.get(message.chat.id)
+    stats = updated_stats(message.chat, queue)
+    if stats:
+      if playing:
+        await message.answer('Opened Menu', show_alert=True)
+        await query.edit_message_text(stats, reply_markup=r_ply("pause"))
+      else:
+        await query.edit_message_text(stats, reply_markup=r_ply('play'))
 
+        
 @Client.on_message(
     command(["musicplayer", f"musicplayer@{BOT_USERNAME}"])
     & ~filters.edited
@@ -743,7 +758,7 @@ async def lol_cb(b, cb):
     except:
         pass
     try:
-        thumb_name = f"thumb-{title}-veezmusic.jpg"
+        thumb_name = f"thumb-{title}-zypher.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
     except Exception as e:
@@ -754,7 +769,7 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
+                        InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="okmenu"),
                         InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                     ],
                 ]
@@ -907,7 +922,7 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
+                        InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="okmenu"),
                         InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                     ],
                 ]
