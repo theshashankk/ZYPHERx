@@ -41,6 +41,17 @@ chat_id = None
 useer = "NaN"
 DISABLED_GROUPS = []
 
+ppl_b = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyBoardButton("⏹️", callback_data="leave"),
+            InlineKeyBoardButton("⏸", callback_data="puse"),
+            InlineKeyBoardButton("▶️", callback_data="resume"),
+            InlineKeyBoardButton("⏩", callback_data="skip")
+        ],
+        [InlineKeyBoardButton("🚧 Close", callback_data="cls")],
+    ]
+)
 
 def cb_admin_check(func: Callable) -> Callable:
     async def decorator(client, cb):
@@ -571,17 +582,7 @@ async def play(_, message: Message):
         dlurl = url
         dlurl = dlurl.replace("youtube", "youtubepp")
         main
-        keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("⏹", "leave"),
-                    InlineKeyboardButton("⏸", "puse"),
-                    InlineKeyboardButton("▶️", "resume"),
-                    InlineKeyboardButton("⏭", "skip"),
-                ],
-                [InlineKeyboardButton("🗑 Close", "cls")],
-            ]
-        )
+        keyboard = ppl_b
         message.from_user.first_name
         await generate_cover(title, thumbnail)
         file_path = await converter.convert(youtube.download(url))
