@@ -527,12 +527,6 @@ async def play(_, message: Message):
             )
         keyboard = InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton("⏹", "leave"),
-                    InlineKeyboardButton("⏸", "puse"),
-                    InlineKeyboardButton("▶️", "resume"),
-                    InlineKeyboardButton("⏭", "skip"),
-                ],
                 [InlineKeyboardButton("🗑 Close", "cls")],
             ]
         )
