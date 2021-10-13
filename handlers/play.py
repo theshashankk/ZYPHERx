@@ -827,7 +827,7 @@ async def lol_cb(b, cb):
                     ],
                 ]
             )
-    await generate_cover(title, thumbnail)
+    await generate_cover(title, thumbnail, ctitle)
     file_path = await converter.convert(youtube.download(url))
     if chat_id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(chat_id, file=file_path)
