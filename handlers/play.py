@@ -548,7 +548,7 @@ async def play(_, message: Message):
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         message.from_user.first_name
-        await generate_cover(title, thumbnail)
+        await generate_cover(title, thumbnail, ctitle)
         file_path = await converter.convert(
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name))
