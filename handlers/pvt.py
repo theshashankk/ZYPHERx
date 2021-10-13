@@ -1,4 +1,4 @@
-from datetime import datetime
+'''from datetime import datetime
 from sys import version_info
 from time import time
 
@@ -52,13 +52,12 @@ async def _human_time_duration(seconds):
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-      '''
       dkis
       __Hey this is Zypher__
       **🍿 i can play music in your group/channel voice that with out any type of lag..**
     
       **if you want to add me in your group click on below button.🍿**''',
-      reply_markup = InlineKeyboardMarkup(
+     ''' reply_markup = InlineKeyboardMarkup(
         [
           [
             InlineKeyboardButton('🍿 Advanced', callback_data='amdvamced'),
@@ -74,3 +73,4 @@ async def start_(client: Client, message: Message):
           ],
         ]),
       disable_web_page_preview=True)
+'''
