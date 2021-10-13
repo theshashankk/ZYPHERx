@@ -23,10 +23,10 @@ from helpers.filters import command, other_filters
 from helpers.gets import get_file_name
 
 
-@Client.on_message(command(["stream", f"stream@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
 async def stream(_, message: Message):
 
-    lel = await message.reply("🔁 **processing** sound...")
+    lel = await message.reply("🔁 **processing**..")
     costumer = message.from_user.mention
 
     keyboard = InlineKeyboardMarkup(
@@ -43,7 +43,7 @@ async def stream(_, message: Message):
     audio = message.reply_to_message.audio if message.reply_to_message else None
 
     if not audio:
-        return await lel.edit("💭 **please reply to a telegram audio file**")
+        return
     if round(audio.duration / 60) > DURATION_LIMIT:
         return await lel.edit(
             f"❌ **music with duration more than** `{DURATION_LIMIT}` **minutes, can't play !**"
