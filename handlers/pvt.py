@@ -56,8 +56,8 @@ async def start_(client: Client, message: Message):
       __Hey this is Zypher__
       **🍿 i can play music in your group/channel voice that with out any type of lag..**
     
-      **if you want to add me in your group click on below button.🍿**''',
-     ''' reply_markup = InlineKeyboardMarkup(
+      **if you want to add me in your group click on below button.🍿**,
+     reply_markup = InlineKeyboardMarkup(
         [
           [
             InlineKeyboardButton('🍿 Advanced', callback_data='amdvamced'),
