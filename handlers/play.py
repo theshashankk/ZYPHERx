@@ -149,7 +149,7 @@ def changeImageSize(maxWidth, maxHeight, image):
     return newImage
 
 
-async def generate_cover(title, thumbnail, ctitle):
+async def generate_cover(title, thumbnail):
     async with aiohttp.ClientSession() as session:
         async with session.get(thumbnail) as resp:
             if resp.status == 200:
@@ -167,7 +167,6 @@ async def generate_cover(title, thumbnail, ctitle):
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/Roboto-Medium.ttf", 60)
     font2 = ImageFont.truetype("etc/finalfont.ttf", 75)
-    draw.text((25, 234), f"Playing on {ctitle[:10]}", (0, 0, 0), font=font)
     draw.text((25, 635), f"{title[:25]}...", (0, 0, 0), font=font2)
     img.save("final.png")
     os.remove("temp.png")
@@ -600,7 +599,7 @@ async def play(_, message: Message):
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         message.from_user.first_name
-        await generate_cover(title, thumbnail, ctitle)
+        await generate_cover(title, thumbnail)
         file_path = await converter.convert(
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name))
@@ -827,7 +826,7 @@ async def lol_cb(b, cb):
                     ],
                 ]
             )
-    await generate_cover(title, thumbnail, ctitle)
+    await generate_cover(title, thumbnail)
     file_path = await converter.convert(youtube.download(url))
     if chat_id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(chat_id, file=file_path)
