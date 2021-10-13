@@ -547,11 +547,6 @@ async def play(_, message: Message):
                     )
                 except UserAlreadyParticipant:
                     pass
-                except Exception:
-                    await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \n\nassistant can't join this group due to many join requests for userbot."
-                        f"\n\nor add @{ASSISTANT_NAME} to this group manually then try again.</b>",
-                    )
     try:
         await USER.get_chat(chid)
     except:
