@@ -166,4 +166,4 @@ async def shellrunner(client, message):
             return os.remove("output.txt")
         await edit_or_reply(message, text=f"**OUTPUT:**\n\n```{output}```")
     else:
-        await edit_or_reply(message, text="**OUTPUT: **\n`No output`"
+        await edit_or_reply(message, text="**OUTPUT: **\n`No output`")
