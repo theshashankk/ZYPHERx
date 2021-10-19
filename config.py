@@ -11,7 +11,7 @@ if os.path.exists("local.env"):
 load_dotenv()
 que = {}
 admins = {}
-SESSION_NAME = getenv("SESSION_NAME", "AQAXycVEHNyZQZmQYSJCWhv2Up4MB9rNWfEZN-9BWvqEaZlZlo-FsW4zVbtAiR_wqtppgBgTVeBQ1ZCW3inHzPK9a8hTnpdUh_AhpYh_VucvxnOuKycbDCNjjDksSXimhG39fsIjUyhuqVqS-PvOeEmHSk267gLQ3MVe6IMGk_7w6rQihFj0Ct1qVdSARpaPwwvSo18S06rxiPlXJsXpLNOs8k5AzfDyWB6mgSUCPzuBldMAK0yfGYm1q62IWJkoX8Cyt2nznNlBN1GZa3CSc0GA5BqEzQE6OJWPxgQWu5jTcNYY1Iqgxw-5aztlfQVZONhH7f9H7lvbIyawFiJDby-tdquPPgA")
+SESSION_NAME = getenv("SESSION_NAME", "AQCnMks33wfF9mRhqXLU813wagcRX0mRWvUQDRuo7EfrvyBDoFKcVxcS_-nG709V0t_rBYpUHIUb3mEUaLq6j4ie-1iBtyPAkJWeSBoizyo1C5BMQCZNccfUOCxj2bwyJjIihuIQ7RYU0L4ED6kw8kGQFGThIgdFDg4z37rGrLDTwQV8FHZfmcW-O3kz8fxlQbLOIgRlY_Y5rzeWnppi5WSxRPAIzTeob8KrOnPyeCRMH65hKNkd6tdzVX-6DUOT_k7jIDfMG-1dz4c827wnHjTuy9uABOrMutz2NK_rakjNb-e0oZ7F_YH1BVjg6-_U7Ayq84Dz0N2czLFDTYcPMDdBdquPPgA")
 BOT_TOKEN = getenv("BOT_TOKEN", "2061760260:AAH5oGUxogL5ZkUTX4yctjSqEFXN4aNyi7E")
 BOT_NAME = getenv("BOT_NAME", "ZYPHERx_BOT")
 BG_IMAGE = getenv("BG_IMAGE", "https://raw.githubusercontent.com/theshashankk/HinataBot/main/background1.png")
