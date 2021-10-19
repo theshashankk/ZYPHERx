@@ -1,4 +1,3 @@
-impore re
 from pyrogram import Client, errors
 from pyrogram.types import (
     InlineQuery,
@@ -11,8 +10,6 @@ from youtubesearchpython import VideosSearch
 async def lolinfo(_, message: Message):
   song_p = message.text.split('_', 1)
   query = song_p[1]
-  regex = r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+"
-  match = re.match(regex,query)
   search = VideosSearch(query, limit=70)
   
   for result in search.result()["result"]:
