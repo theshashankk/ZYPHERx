@@ -1,4 +1,4 @@
-from pyrogram import Client, errors
+from pyrogram import Client, errors, filters
 from pyrogram.types import (
     InlineQuery,
     InlineQueryResultArticle,
